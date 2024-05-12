@@ -1,6 +1,21 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
+import { provideRouter, Routes } from '@angular/router';
+import { MainComponent } from './app/main/main.component';
+import { EquiposComponent } from './app/main/equipos/equipos.component';
+import { InformationComponent } from './app/footer/information/information.component';
+import { EmbarcacionesComponent } from './app/main/embarcaciones/embarcaciones.component';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+
+const routes: Routes = [
+  { path: '', component: MainComponent },
+  { path: 'equipos', component: EquiposComponent },
+  { path: 'embarcaciones', component: EmbarcacionesComponent },
+  { path: 'information', component: EmbarcacionesComponent }
+];
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes)
+  ]
+});

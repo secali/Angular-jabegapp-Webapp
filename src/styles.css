@@ -1,1 +1,101 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.css - Estilos globales para toda la aplicación */
+
+/* Colores */
+:root {
+  --color-primary: #0277BD; /* Blue */
+  --color-secondary: #e8fdf7; /* Teal */
+  --color-accent: #00BCD4; /* Light Blue */
+  --color-light: #E0F7FA; /* Very Light Blue */
+  --color-dark: #01579B; /* Dark Blue */
+  --color-text: #333333; /* Dark gray for text, ensuring good contrast on light backgrounds */
+}
+
+/* Reset de algunos estilos por defecto */
+body, h1, p, ul, li, a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: var(--color-text); /* Apply dark text color universally */
+  background-color: var(--color-light);
+}
+
+/* Estilos para cabeceras y texto */
+h1 {
+  font-size: 24px;
+  color: var(--color-dark); /* Use a darker blue for headings for better visibility */
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+p {
+  color: var(--color-text); /* Ensure paragraphs are also using the dark text color */
+}
+
+/* Estilos generales para navegación y enlaces */
+nav {
+  background-color: var(--color-primary);
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+}
+
+nav a {
+  color: var(--color-light); /* Darker color for better readability on light background */
+  font-size: 16px;
+}
+
+/* Secciones principales */
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.info-section, .image-section {
+  margin: 20px;
+  padding: 20px;
+  background-color: var(--color-secondary); /* Light teal background */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Estilos para el footer */
+footer {
+  background-color: var(--color-dark);
+  padding: 20px 0;
+  display: flex;           /* Habilita Flexbox */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center;     /* Centra los elementos verticalmente */
+  text-align: center;      /* Asegura que el texto dentro de cualquier elemento del footer también esté centrado */
+  width: 100%;
+}
+
+footer div {
+  display: flex;           /* Asegúrate de que cualquier contenedor div dentro del footer también use flexbox */
+  justify-content: center; /* Centra los contenidos del div */
+  align-items: center;     /* Alinea los elementos del div verticalmente en el centro */
+}
+
+footer div a {
+  color: var(--color-light); /* Mantén el color claro para los enlaces para contraste */
+  margin: 0 10px;            /* Espaciado horizontal entre enlaces */
+}
+
+footer p {
+  color: var(--color-light); /* Mantén el color claro para los enlaces para contraste */
+  margin: 0 10px;            /* Espaciado horizontal entre enlaces */
+}
+
+
+

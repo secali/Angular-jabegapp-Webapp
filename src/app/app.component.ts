@@ -6,11 +6,12 @@ import {FooterComponent} from "./footer/footer.component";
 import {EquiposComponent} from "./main/equipos/equipos.component";
 import {EmbarcacionesComponent} from "./main/embarcaciones/embarcaciones.component";
 import {InformationComponent} from "./footer/information/information.component";
+import {ClasificacionComponent} from "./main/clasificacion/clasificacion.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, MainComponent, FooterComponent, EquiposComponent, EmbarcacionesComponent, InformationComponent],
+  imports: [RouterOutlet, HeaderComponent, MainComponent, FooterComponent, EquiposComponent, EmbarcacionesComponent, InformationComponent, ClasificacionComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

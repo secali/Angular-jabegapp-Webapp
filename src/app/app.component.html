@@ -1,11 +1,13 @@
 <app-header></app-header>
 @if (isActive("/")) {
   <app-main></app-main>
-} @else if (isActive("/equipos")){
+} @else if (isActive("/equipos")) {
   <app-equipos></app-equipos>
-} @else if (isActive("/embarcaciones")){
+} @else if (isActive("/clasificacion")) {
+  <app-clasificacion></app-clasificacion>
+} @else if (isActive("/embarcaciones")) {
   <app-embarcaciones></app-embarcaciones>
-} @else if (isActive("/information")){
+} @else if (isActive("/information")) {
   <app-information></app-information>
 }
 <app-footer></app-footer>

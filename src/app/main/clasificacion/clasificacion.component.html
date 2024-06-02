@@ -1,0 +1,28 @@
+<div class="search-filter-container">
+  <br><h2>Categorias:</h2><br>
+  <label *ngFor="let categoria of ['CADETE MASCULINO', 'CADETE FEMENINO', 'JUVENIL MASCULINO', 'JUVENIL FEMENINO', 'SENIOR MASCULINO', 'SENIOR FEMENINO']">
+    <input type="checkbox" (change)="toggleCategory(categoria)" /> {{ categoria }}
+  </label>
+</div>
+
+<div class="classification-container" *ngFor="let clasificacion of filteredClasificaciones">
+  <h3>{{ clasificacion.categoria }}</h3>
+  <table class="classification-table">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Equipo</th>
+      <th>Total</th>
+      <th *ngFor="let header of headers">{{ header }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let equipo of clasificacion.equipos; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ equipo.nombre }}</td>
+      <td>{{ equipo.total }}</td>
+      <td *ngFor="let puntos of equipo.puntuacion">{{ puntos !== null ? puntos : '' }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

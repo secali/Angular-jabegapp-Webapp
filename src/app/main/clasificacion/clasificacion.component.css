@@ -1,0 +1,78 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Container for the entire component */
+.classification-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.classification-container h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Table container styles */
+.table-container {
+  flex: 0 0 60%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+/* Styling the table */
+.classification-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.classification-table th, .classification-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.classification-table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.classification-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.classification-table tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.selected-row {
+  background-color: #d9edf7;
+}
+
+/* Styling the search and filter options */
+.search-filter-container {
+  margin-bottom: 20px;
+}
+
+.search-filter-container label {
+  margin-right: 20px;
+  display: inline-block;
+}
+
+.search-filter-container input[type="checkbox"] {
+  margin-right: 5px;
+}

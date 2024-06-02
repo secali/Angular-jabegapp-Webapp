@@ -2,12 +2,12 @@
 
 /* Colores */
 :root {
-  --color-primary: #0277BD; /* Blue */
-  --color-secondary: #e8fdf7; /* Teal */
-  --color-accent: #00BCD4; /* Light Blue */
-  --color-light: #E0F7FA; /* Very Light Blue */
-  --color-dark: #01579B; /* Dark Blue */
-  --color-text: #333333; /* Dark gray for text, ensuring good contrast on light backgrounds */
+  --color-primary: #1E88E5; /* Blue */
+  --color-secondary: #BBDEFB; /* Light Blue */
+  --color-accent: #0D47A1; /* Dark Blue */
+  --color-light: #E3F2FD; /* Very Light Blue */
+  --color-dark: #0D47A1; /* Dark Blue */
+  --color-text: #212121; /* Dark gray for text, ensuring good contrast on light backgrounds */
 }
 
 /* Reset de algunos estilos por defecto */
@@ -34,6 +34,7 @@ h1 {
 
 p {
   color: var(--color-text); /* Ensure paragraphs are also using the dark text color */
+  line-height: 1.6;
 }
 
 /* Estilos generales para navegación y enlaces */
@@ -65,7 +66,6 @@ main {
 .info-section, .image-section {
   margin: 20px;
   padding: 20px;
-  background-color: var(--color-secondary); /* Light teal background */
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
@@ -96,6 +96,3 @@ footer p {
   color: var(--color-light); /* Mantén el color claro para los enlaces para contraste */
   margin: 0 10px;            /* Espaciado horizontal entre enlaces */
 }
-
-
-

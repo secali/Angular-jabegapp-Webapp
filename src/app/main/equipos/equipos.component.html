@@ -1,42 +1,53 @@
-<div class="container">
-  <div class="left-panel">
-    <label for="team-name">Nombre del equipo:</label>
-    <input type="text" id="team-name" name="team-name" style="width: 100%; margin-bottom: 10px;">
-
-    <div>
-      <label>Ubicación:</label><br>
-      <input type="checkbox" id="pedregalejo" name="location" value="Pedregalejo">
-      <label for="pedregalejo">Pedregalejo</label><br>
-      <input type="checkbox" id="malaga" name="location" value="Malaga">
-      <label for="malaga">Málaga</label><br>
-      <input type="checkbox" id="cala" name="location" value="Cala del Moral">
-      <label for="cala">La Cala del Moral</label><br>
-      <input type="checkbox" id="rincon" name="location" value="Rincon de la Victoria">
-      <label for="rincon">Rincón de la Victoria</label><br>
-    </div>
-
-    <div style="margin-top: 10px;">
-      <label for="min-embarcaciones">Número de embarcaciones:</label><br>
-      <input type="number" id="min-embarcaciones" name="min-embarcaciones" style="width: 40%;" placeholder="min">
-      <input type="number" id="max-embarcaciones" name="max-embarcaciones" style="width: 40%;" placeholder="max">
-    </div>
-  </div>
-
-  <div class="right-panel">
-    <h2>Equipo X</h2>
-    <div class="description">
-      Descripción:
-    </div>
-    <ul class="embarcaciones">
-      <li>Boria &gt;&gt;</li>
-      <li>La Chora &gt;&gt;</li>
-      <li>La Vikinga &gt;&gt;</li>
-      <li>Victoria &gt;&gt;</li>
-      <li>La Torreña &gt;&gt;</li>
-    </ul>
-    <div class="image-placeholder">
-      Imagen
-    </div>
-  </div>
+<div class="search-filter-container">
+  <label for="search">Buscar: </label>
+  <input id="search" type="text" [(ngModel)]="searchText" placeholder="Buscar...">
+</div>
+<div class="search-filter-container">
+  <label>
+    <input type="checkbox" [(ngModel)]="criterios.nombre" (change)="onFiltroCambiado()"> Nombre
+  </label>
+  <label>
+    <input type="checkbox" [(ngModel)]="criterios.club" (change)="onFiltroCambiado()"> Club
+  </label>
+  <label>
+    <input type="checkbox" [(ngModel)]="criterios.ubicacion" (change)="onFiltroCambiado()"> Ubicación
+  </label>
+  <label>
+    <input type="checkbox" [(ngModel)]="criterios.fechaFormacion" (change)="onFiltroCambiado()"> Fecha de Formación
+  </label>
 </div>
 
+<div class="container">
+  <div class="table-container">
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Club</th>
+        <th>Ubicación</th>
+        <th>Fecha de Formación</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let equipo of filteredEquipos()"
+          (click)="selectEquipo(equipo)"
+          [class.selected-row]="equipo === selectedEquipo">
+        <td>{{ equipo.id }}</td>
+        <td>{{ equipo.nombre }}</td>
+        <td>{{ equipo.club }}</td>
+        <td>{{ equipo.ubicacion }}</td>
+        <td>{{ equipo.fechaFormacion }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="selectedEquipo" class="details-container">
+    <h3>{{ selectedEquipo.nombre }}</h3>
+    <img [src]="selectedEquipo.imagen" alt="{{ selectedEquipo.nombre }}" width="300">
+    <p><strong>Club:</strong> {{ selectedEquipo.club }}</p>
+    <p><strong>Ubicación:</strong> {{ selectedEquipo.ubicacion }}</p>
+    <p><strong>Fecha de Formación:</strong> {{ selectedEquipo.fechaFormacion }}</p>
+  </div>
+</div>

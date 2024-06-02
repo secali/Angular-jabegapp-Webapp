@@ -1,0 +1,90 @@
+/* main.component.css */
+
+main {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: var(--color-light);
+  padding: 20px;
+}
+
+.info-section {
+  flex: 0 0 60%;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.info-section h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: var(--color-dark);
+}
+
+.info-section p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.info-section button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.info-section button:hover {
+  background-color: var(--color-accent);
+}
+
+.image-section {
+  flex: 0 0 40%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+}
+
+.carousel img {
+  width: 100%;
+  display: none;
+  max-height: 75vh; /* Set the maximum height to 80% of the viewport height */
+  border-radius: 8px;
+}
+
+.carousel img.active {
+  display: block;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}

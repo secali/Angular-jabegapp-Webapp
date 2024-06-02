@@ -1,36 +1,57 @@
-<div class="left-panel">
-  <div>
-    <label>Ubicación:</label><br>
-    <input type="checkbox" id="pedregalejo" name="location" value="Pedregalejo">
-    <label for="pedregalejo">Pedregalejo</label><br>
-    <input type="checkbox" id="malaga" name="location" value="Malaga">
-    <label for="malaga">Málaga</label><br>
-    <input type="checkbox" id="cala" name="location" value="Cala del Moral">
-    <label for="cala">La Cala del Moral</label><br>
-    <input type="checkbox" id="rincon" name="location" value="Rincon de la Victoria">
-    <label for="rincon">Rincón de la Victoria</label><br>
-  </div>
-
-  <div style="margin-top: 10px;">
-    <label for="min-capacity">Capacidad mínima:</label><br>
-    <input type="number" id="min-capacity" name="min-capacity" style="width: 40%;" placeholder="min">
-    <input type="number" id="max-capacity" name="max-capacity" style="width: 40%;" placeholder="max">
-  </div>
+<div class="search-filter-container">
+  <label for="search">Buscar: </label>
+  <input id="search" type="text" [(ngModel)]="searchText" placeholder="Buscar...">
+</div>
+<div class="search-filter-container">
+  <label>
+    <input type="checkbox" [(ngModel)]="criterios.nombre" (change)="onFiltroCambiado()"> Nombre
+  </label>
+  <label>
+    <input type="checkbox" [(ngModel)]="criterios.club" (change)="onFiltroCambiado()"> Club
+  </label>
+  <label>
+    <input type="checkbox" [(ngModel)]="criterios.ubicacion" (change)="onFiltroCambiado()"> Ubicación
+  </label>
+  <label>
+    <input type="checkbox" [(ngModel)]="criterios.fechaConstruccion" (change)="onFiltroCambiado()"> Fecha de Construcción
+  </label>
 </div>
 
-<div class="right-panel">
-  <h2>Embarcación X</h2>
-  <div class="description">
-    Descripción:
+<div class="container">
+  <div class="table-container">
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Capacidad</th>
+        <th>Club</th>
+        <th>Ubicación</th>
+        <th>Fecha de Construcción</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let embarcacion of filteredEmbarcaciones()"
+          (click)="selectEmbarcacion(embarcacion)"
+          [class.selected-row]="embarcacion === selectedEmbarcacion">
+        <td>{{ embarcacion.id }}</td>
+        <td>{{ embarcacion.nombre }}</td>
+        <td>{{ embarcacion.tipo }}</td>
+        <td>{{ embarcacion.capacidad }}</td>
+        <td>{{ embarcacion.club }}</td>
+        <td>{{ embarcacion.ubicacion }}</td>
+        <td>{{ embarcacion.fechaConstruccion }}</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
-  <ul class="teams">
-    <li>Equipo A &gt;&gt;</li>
-    <li>Equipo B &gt;&gt;</li>
-    <li>Equipo C &gt;&gt;</li>
-    <li>Equipo D &gt;&gt;</li>
-    <li>Equipo E &gt;&gt;</li>
-  </ul>
-  <div class="image-placeholder">
-    Imagen
+
+  <div *ngIf="selectedEmbarcacion" class="details-container">
+    <h3>{{ selectedEmbarcacion.nombre }}</h3>
+    <img [src]="selectedEmbarcacion.imagen" alt="{{ selectedEmbarcacion.nombre }}" width="300">
+    <p><strong>Club:</strong> {{ selectedEmbarcacion.club }}</p>
+    <p><strong>Ubicación:</strong> {{ selectedEmbarcacion.ubicacion }}</p>
+    <p><strong>Fecha de Construcción:</strong> {{ selectedEmbarcacion.fechaConstruccion }}</p>
   </div>
 </div>
